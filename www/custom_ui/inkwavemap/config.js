@@ -19,12 +19,12 @@ GaodeMapserviceHost=""
 //以上两者都不为空时，以GaodeMapjscode优先。
 
 
-// 永久Token(HomeAssistant 0.77.2版本以上时可用)
+/ 长期访问令牌(HomeAssistant 0.77.2版本以上时可用)，安全考虑，建议留空，使用登录ha时“启用记住密码”。
 // HomeAssistant 0.77.2版本以后，HomeAssistant登录后如果未启用记住密码，墨澜地图将无法自行获取Token（配置了正确的LongTimeToken后可以正常使用）
-// 获取方式：ha左下角用户名——长期访问令牌——创建令牌
-// (Bearer ”保留不变，后面的长串修改为你创建的HA长期访问令牌)
-LongTimeToken="Bearer eyJ0eXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
+// // 获取方式：ha左下角用户名——长期访问令牌——创建令牌
+// (选填，Bearer ”保留不变，后面的长串修改为你创建的HA长期访问令牌)
+//LongTimeToken="Bearer eyJ0eXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+LongTimeToken=""
 
 
 // 指定追踪设备ID（多个设备时用半角逗号做分隔“,”，如"device_tracker.gddr_gooddriver,device_tracker.iphone13"）
