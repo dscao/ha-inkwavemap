@@ -193,7 +193,7 @@ $(function() {
 			var datajson = eval(data);
 			$.each(datajson, function (i, n)
 			{
-				if (n.state == "zoning" && n.attributes['longitude'] != undefined && n.attributes['longitude'] != null)
+				if (JSON.stringify(n.entity_id).search('zone.') >0 && n.attributes['longitude'] != undefined && n.attributes['longitude'] != null)				
 				{
 					arrZone.push({
 						'longitude': n.attributes['longitude'], 
@@ -458,10 +458,12 @@ function getDevice(deviceId) {
 $(document).on("zoomchange", function() {
     syncToolbarState(['zoomin', 'zoomout']);
 });
-$(document).on("mapInitFinished", function() {
+
+
+/* $(document).on("mapInitFinished", function() {
     syncToolbarState(['zoomin', 'zoomout', 'traffic', 'homepoint', 'homerange', 'devicelist']);
 	if (getDataMode == "client"){
-		url = HomeAssistantWebAPIUrl + "/api/states/group.all_devices";
+		url = HomeAssistantWebAPIUrl + "/api/states/group.gpsgroup";
 	}else{
 		url = phpUrl + "?type=getAllDevices";
 	}
@@ -504,7 +506,50 @@ $(document).on("mapInitFinished", function() {
             }
         }
     });
+}); */
+
+$(document).on("mapInitFinished", function() {
+    syncToolbarState(['zoomin', 'zoomout', 'traffic', 'homepoint', 'homerange', 'devicelist']);
+    $.ajax({
+        type: "GET",
+        url: HomeAssistantWebAPIUrl + "/api/states",
+        beforeSend: function(request) {
+              request.setRequestHeader("x-ha-access", authToken);
+              request.setRequestHeader("Authorization", newToken);
+          },
+        cache: false,
+        async: true,
+        dataType: "json",
+        success: function (data) {
+            var idlist = DeviceTrackerIDList.replace("device_tracker.","");
+            for (var index in data) {
+                var str = JSON.stringify(data[index].entity_id);
+                if (str == null)
+                    continue;
+                
+                if (str.search('device_tracker') == -1)
+                    continue;
+                
+                var deviceId = data[index].entity_id.replace("device_tracker.", "");
+                if (idlist != "" && (idlist + ",").indexOf(deviceId) == -1)
+                    continue;
+                
+                if (data[index].attributes['longitude'] == undefined || data[index].attributes['longitude'] == null)
+                    continue;
+                
+                insertDeviceList(0, {
+                    //checked: true,
+                    id: deviceId,
+                    name: 'loading...',
+                    state: '---'
+                });
+                getDevice(deviceId);
+            }
+        }
+    });
 });
+
+
 $(document).on("updateDrivingTime", function(event, params) {
 	var strState = null;
 	var strState_r = getDeviceListValue(params['deviceId'],'state_r');
