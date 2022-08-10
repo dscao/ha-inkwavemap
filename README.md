@@ -5,11 +5,9 @@
 
 ![iOS](https://raw.githubusercontent.com/cxlwill/ha-inkwavemap/master/media/ios.jpg)
 
-本项目为 Home Assistant 的定制化中国地图面板,支持ha 2022.3之后，已测试至2022.8版本。
+本项目为 Home Assistant 的定制化中国地图面板，支持ha 2022.3之后，已测试至2022.8版本。
 
 制作者：[墨澜](https://github.com/cxlwill)， [Mr.Yin](https://github.com/YinHangCode)，[poerts](https://github.com/poerts)
-
-**感谢 poerts 的 PR，本项目已支持最新版 0.77.2 Home Assistant 授权机制。**
 
 ## 简介
 本地化 Home Assistant 的地图面板，实现：
