@@ -35,7 +35,7 @@
 3. 前往 [高德开放平台](http://lbs.amap.com/) 申请开发者身份，创建新应用，**服务类型选择 web 端，注意是 web 端，不是 web 服务！！！** 之后获取 key；
 ![Gaode](https://raw.githubusercontent.com/cxlwill/ha-inkwavemap/master/media/gaode.jpg)
 
-4. 打开 `www/custom_ui/inkwavemap` 中 `config.js` 文件，填入你的 HA长期访问令牌、高德 token及高德安全密钥。如果要指定追踪设备ID，请填写实体ID,多个设备时用半角逗号做分隔。不指定则显示所有可跟踪的设备。
+4. 打开 `www/custom_ui/inkwavemap` 中 `config.js` 文件，填入你的 HA长期访问令牌、高德key及高德安全密钥。如果要指定追踪设备ID，请填写实体ID,多个设备时用半角逗号做分隔。不指定则显示所有可跟踪的设备。
 
 5. **清除浏览器缓存，重启 HA。**
 
