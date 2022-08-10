@@ -1,5 +1,8 @@
 # ha-inkwavemap
+[![hacs_badge](https://img.shields.io/badge/Home-Assistant-%23049cdb)](https://www.home-assistant.io/)
 [![ha-inkwavemap version](https://img.shields.io/badge/ha--inkwavemap-2022.3.0-blue.svg)](https://github.com/dscao/ha-inkwavemap)
+![visit](https://visitor-badge.glitch.me/badge?page_id=dscao.ha-inkwavemap&left_text=visit)
+
    
 ![墨澜地图](https://raw.githubusercontent.com/cxlwill/ha-inkwavemap/master/media/screenshot.jpg)
 
