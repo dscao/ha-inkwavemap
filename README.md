@@ -1,5 +1,5 @@
 # ha-inkwavemap
-[![ha-inkwavemap version](https://img.shields.io/badge/ha--inkwavemap-0.0.3-blue.svg)](https://github.com/cxlwill/ha-inkwavemap)
+[![ha-inkwavemap version](https://img.shields.io/badge/ha--inkwavemap-2022.3.0-blue.svg)](https://github.com/dscao/ha-inkwavemap)
    
 ![墨澜地图](https://raw.githubusercontent.com/cxlwill/ha-inkwavemap/master/media/screenshot.jpg)
 
