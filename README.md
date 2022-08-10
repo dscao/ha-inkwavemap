@@ -23,7 +23,7 @@
 - 替代原有图层替换方法，不受 HA 更新影响，一步到位
 
 ## 配置方法
-1. 拷贝 `www` 文件夹至 Home Assistant 配置文件夹；
+1. 拷贝 `www` 文件夹至 Home Assistant 配置文件夹，即 /config/www/custom_ui/inkwavemap；
 
 2. 安装自定义集成“侧边栏面板”：https://github.com/shaonianzhentan/panel_iframe ，UI中配置侧边栏：/local/custom_ui/inkwavemap/index.html （全屏）
 ![1](https://user-images.githubusercontent.com/16587914/183838379-0fa4f227-5f38-4702-9f76-693b753148cf.jpg)
