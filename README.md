@@ -23,17 +23,23 @@
 - 替代原有图层替换方法，不受 HA 更新影响，一步到位
 
 ## 配置方法
-1. 拷贝 `www` 和 `panels` 文件夹至 Home Assistant 配置文件夹；
-2. 打开 Home Assistant 配置文件 `configuration.yaml`，添加 `sample.yaml` 中的内容；
-3. 修改 `configuration.yaml` 中的默认经纬度为谷歌地球坐标，**注意非地图，是地球**！坐标可至该 [网站](http://www.gpsspg.com/maps.htm) 获取；
+1. 拷贝 `www` 文件夹至 Home Assistant 配置文件夹；
+
+2. 安装自定义集成“侧边栏面板”：https://github.com/shaonianzhentan/panel_iframe ，UI中配置侧边栏：/local/custom_ui/inkwavemap/index.html （全屏）
+![1](https://user-images.githubusercontent.com/16587914/183838379-0fa4f227-5f38-4702-9f76-693b753148cf.jpg)
+
+3. 修改ha中 配置——通用——编辑位置，UI中拖拉座标修改家的位置；
+![2](https://user-images.githubusercontent.com/16587914/183839091-88de129e-6466-4abf-9149-d6220db38976.jpg)
+
 3. 前往 [高德开放平台](http://lbs.amap.com/) 申请开发者身份，创建新应用，**服务类型选择 web 端，注意是 web 端，不是 web 服务！！！** 之后获取 key；
 ![Gaode](https://raw.githubusercontent.com/cxlwill/ha-inkwavemap/master/media/gaode.jpg)
+
 4. 打开 `www/custom_ui/inkwavemap` 中 `config.js` 文件，填入你的 HA 密码以及高德 token。
+
 5. **清除浏览器缓存，重启 HA。**
 
 ## 使用 TIP
 
-- **默认经纬度请使用 Google 地球坐标，注意是地球，不是地图！防止误纠偏。**
 - 如果有多人在同一地点，将聚合为数字标签，点触即可展开详情
 - 点触 Dock 栏最后图标可选择追踪设备（对象）
  
@@ -61,6 +67,10 @@
 出现此问题一般是由于高德 API 申请时选错『服务平台』导致，注意请选择『web 端』，而不是 『web 服务』。
 
 ## 版本更新日志
+
+### 2022.3.0
+1. 适配ha 2022.3新版后的跟踪设备及轨迹不出现的问题。
+
 ### 0.0.3
 1. 增加路径图示；
 2. 支持新版授权机制。
