@@ -1,8 +1,0 @@
-{
-"domain": "inkwavemap",
-"name": "inkwavemap",
-"documentation": "https://github.com/cxlwill/ha-inkwavemap",
-"dependencies": [],
-"codeowners": ["@cxlwill"],
-"requirements": []
-}
