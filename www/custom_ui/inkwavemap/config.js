@@ -14,7 +14,7 @@ GaodeMapKey="cc9dxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 // 注意：此次升级不会影响之前已获得 key 的使用；升级之后的新增的key必须要配备安全密钥一起使用（不需要则留空）
 GaodeMapjscode=""
 // 如果使用高德强烈推荐的方式一：JSAPI key搭配代理服务器并携带安全密钥转发（安全）（不使用则留空）
-GaodeMapserviceHost:""
+GaodeMapserviceHost=""
 //以上两者都不为空时，以GaodeMapjscode优先。
 
 
