@@ -26,8 +26,21 @@
     <script src="js/map.js?"+Math.random()></script>
     <link rel="stylesheet" href='css/map.css'/>
     <script src="js/coordinateutil.js?"+Math.random()></script>
+	
+    <script type="text/javascript">
+	if (GaodeMapjscode!="") {
+		window._AMapSecurityConfig = {
+		    securityJsCode:GaodeMapjscode,
+		}
+	}
+        else if (GaodeMapserviceHost!="") {
+		window._AMapSecurityConfig = {
+		    serviceHost:GaodeMapserviceHost,
+		}
+	}
+    </script>
 
-	<script type="text/javascript">
+    <script type="text/javascript">
         var gaodeMapAPI = "<script src='https://webapi.amap.com/maps?v=1.4.1&key=" + GaodeMapKey + "&plugin=AMap.MarkerClusterer,AMap.Driving,AMap.Walking,AMap.Riding'><\/script>";
     //    console.info(gaodeMapAPI);
         document.write(gaodeMapAPI);
