@@ -358,7 +358,7 @@ function getLocationData(deviceId){
 			
 			$.each(datajson, function (i, n)
 			{
-				if (n.attributes["source_type"] == "gps")
+				if (n.attributes["source_type"].toLowerCase() == "gps")
 				{
 					arr.push({
 						'longitude': n.attributes['longitude'], 
