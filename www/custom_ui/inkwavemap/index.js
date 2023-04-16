@@ -521,18 +521,19 @@ $(document).on("mapInitFinished", function() {
         async: true,
         dataType: "json",
         success: function (data) {
-            var idlist = DeviceTrackerIDList.replace("device_tracker.","");
+            var idlist = DeviceTrackerIDList.replaceAll("device_tracker.","").split(",");
             for (var index in data) {
                 var str = JSON.stringify(data[index].entity_id);
                 if (str == null)
                     continue;
                 
                 if (str.search('device_tracker') == -1)
-                    continue;
-                
+                    continue;	                
+				
                 var deviceId = data[index].entity_id.replace("device_tracker.", "");
-                if (idlist != "" && (idlist + ",").indexOf(deviceId) == -1)
-                    continue;
+					
+                if (idlist != "" && idlist.indexOf(deviceId) == -1)
+                    continue;			
                 
                 if (data[index].attributes['longitude'] == undefined || data[index].attributes['longitude'] == null)
                     continue;
