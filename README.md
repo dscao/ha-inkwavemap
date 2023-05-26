@@ -1,6 +1,6 @@
 # ha-inkwavemap
 [![hacs_badge](https://img.shields.io/badge/Home-Assistant-%23049cdb)](https://www.home-assistant.io/)
-[![ha-inkwavemap version](https://img.shields.io/badge/ha--inkwavemap-2022.8.10-blue.svg)](https://github.com/dscao/ha-inkwavemap)
+[![ha-inkwavemap version](https://img.shields.io/badge/ha--inkwavemap-2023.5.10-blue.svg)](https://github.com/dscao/ha-inkwavemap)
 ![visit](https://visitor-badge.glitch.me/badge?page_id=dscao.ha-inkwavemap&left_text=visit)
 
    
