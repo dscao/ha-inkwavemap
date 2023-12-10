@@ -143,6 +143,16 @@ MapGaode.prototype = {
         });
     },
 	
+	fireEvent: function(type, data = {}) {
+		const event = new Event(type, {
+		  bubbles: true,
+		  cancelable: false,
+		  composed: true
+		});
+		event.detail = data;
+		parent.document.querySelector('home-assistant').dispatchEvent(event);
+	},
+	
 	//mengqi
 	query: function(coordinate) {
 		this.drawTrackPlaybackmarker(coordinate);
@@ -251,10 +261,26 @@ MapGaode.prototype = {
 		  //this.trackPlaybackMass1.setStyle(style[2]);
 		  
 		  that.trackPlaybackMass2 = new AMap.Marker({content:' ',map:that.map})
-		  that.trackPlaybackMass1.on('mouseover',function(e){
-		  that.trackPlaybackMass2.setPosition(e.data.lnglat);
-		  that.trackPlaybackMass2.setLabel({content:e.data.updatedate})
-		  })
+		  // that.trackPlaybackMass1.on('mouseover',function(e){
+		  // that.trackPlaybackMass2.setPosition(e.data.lnglat);
+		  // that.trackPlaybackMass2.setLabel({content:e.data.updatedate})
+		  // })
+		  // 检测是否支持触摸事件
+		  var isTouchDevice = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
+		  if (isTouchDevice) {
+		    // 触摸设备
+		    that.trackPlaybackMass1.on('touchstart', function(e){
+		 	that.trackPlaybackMass2.setPosition(e.data.lnglat);
+			that.trackPlaybackMass2.setLabel({content: e.data.updatedate});
+		    });
+		  } else {
+		  // 非触摸设备（电脑）
+		    that.trackPlaybackMass1.on('mouseover', function(e){
+			that.trackPlaybackMass2.setPosition(e.data.lnglat);
+			that.trackPlaybackMass2.setLabel({content: e.data.updatedate});
+		    });
+		  }
 		  that.trackPlaybackMass1.setMap(that.map);
 		  
     },
@@ -303,7 +329,13 @@ MapGaode.prototype = {
                 position: [cCoordinate.lon, cCoordinate.lat]
             });
             this.devicesLayer[deviceid].visible = true;
-            
+			
+			this.devicesLayer[deviceid].on('click', (function(e) {
+			  // 在这里编写点击事件的处理逻辑
+			  console.log('点击了设备：' + deviceid);
+			  this.fireEvent('hass-more-info', { entityId: 'device_tracker.'+deviceid });
+			}).bind(this));;
+			            
             this.updateMarkerClusterer();
         }
     },
