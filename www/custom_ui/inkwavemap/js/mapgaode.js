@@ -62,8 +62,7 @@ MapGaode.prototype = {
                 position: [cCoordinate.lon, cCoordinate.lat]
             });
             that.homepoint(true);
-            */
-			
+            */			
 			//mengqi
 			var vhomepointLayerArr = new Array();
 			var vhomerangeLayerArr = new Array();
@@ -127,7 +126,8 @@ MapGaode.prototype = {
                     for(var deviceId in that.devicesLayer) {
                         if(that.devicesLayer[deviceId].visible) {
                             if(that.homerangeLayer.contains(that.devicesLayer[deviceId].getPosition())) {
-                                info.push("<li>" + that.devicesLayer[deviceId].getContent().innerText + "</li>");
+                                info.push("<li style=\"cursor: pointer;\" onclick=\"(function() { var event = new Event('hass-more-info', { bubbles: true, cancelable: false, composed: true }); event.detail = { entityId: 'device_tracker." + deviceId + "' }; parent.document.querySelector('home-assistant').dispatchEvent(event); })()\">" + that.devicesLayer[deviceId].getContent().innerText + "</li>");
+
                             }
                         }
                     }
@@ -331,10 +331,8 @@ MapGaode.prototype = {
             this.devicesLayer[deviceid].visible = true;
 			
 			this.devicesLayer[deviceid].on('click', (function(e) {
-			  // 在这里编写点击事件的处理逻辑
-			  console.log('点击了设备：' + deviceid);
 			  this.fireEvent('hass-more-info', { entityId: 'device_tracker.'+deviceid });
-			}).bind(this));;
+			}).bind(this));
 			            
             this.updateMarkerClusterer();
         }
